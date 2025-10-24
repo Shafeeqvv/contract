@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+body{font-family:"Inter",sans-serif;margin:0;background:#f3f4f6}
+.page{
+    width:210mm;
+    height:297mm;
+    margin:0 auto;
+    background:#fff;
+    box-sizing:border-box;
+    padding:6mm 10mm;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+/* --- HEADER --- */
+/* --- HEADER --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.toll-free-box {
+    font-size: 9px;
+    font-weight: bold;
+    color: #b91c1c;
+    padding: 2px 6px;
+    border: 1px solid #fecaca;
+    border-radius: 3px;
+    background: #fff7f7;
+    white-space: nowrap;
+}
+
+.title-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.title-logo {
+    width: 50px;
+    height: auto;
+    margin-bottom: 2px;
+}
+
+.title-area h1 {
+    font-size: 14px;
+    color: #9d174d;
+    margin: 0;
+    font-weight: 700;
+    text-align: center;
+}
+
+.title-area p {
+    font-size: 9px;
+    margin: 0;
+    text-align: center;
+}
+
+.header-logo-right img {
+    width: 130px;
+    height: auto;
+}
+
+
+
+/* main grid and text */
+.main{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  flex:1;
+  align-items:start;
+  font-size:11px;
+  line-height:1.35;
+}
+.main p, .main li, .main ul, .main ol {line-height:1.35; margin:3px 0; font-size:11px}
+
+/* compact inputs */
+.contract-input, .contract-input-inline {border:0;border-bottom:1px solid #9d174d;background:transparent;padding:0 2px;font-weight:600;font-size:11px;outline:none}
+.contract-input-inline{width:100px;text-align:center}
+.contract-input-full{width:100%}
+
+/* signature area */
+.signature-canvas{border:1px solid #9d174d;width:100%;height:60px;background:#fff;touch-action:none;border-radius:4px}
+.sig-image{display:block;margin:2px auto;height:36px}
+
+/* arabic */
+.arabic{direction:rtl;text-align:right}
+
+/* lists bullet style */
+ul, ol{margin:2px 0;padding-left:18px;line-height:1.35}
+ul{list-style-type:disc;}
+ul ul{list-style-type:circle;}
+.list-rtl ul{list-style-type:disc; padding-right:18px;}
+.list-rtl ul ul{list-style-type:circle;}
+
+/* --- IMPROVED BULLET & LINE SPACING --- */
+.main ul, .main ol {
+  margin: 4px 0;
+  padding-left: 18px;
+  line-height: 1.35;
+}
+.main li {
+  margin-bottom: 3px;
+}
+
+/* Arabic list alignment and spacing */
+.list-rtl ul, .list-rtl ol {
+  padding-right: 18px;
+  line-height: 1.35;
+}
+.list-rtl li {
+  margin-bottom: 3px;
+}
+
+/* --- ALIGN ENGLISH & ARABIC SECTIONS --- */
+.main {
+  align-items: stretch; /* ensures both columns are same height */
+  column-gap: 12px;
+}
+.main > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* --- FOOTER --- */
+.footer{
+    border-top:1px solid #f0abfc;
+    padding-top:4px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px;
+    align-items:start;
+    font-size:11px;
+}
+
+/* --- PRINT REFINEMENTS --- */
+@media print{
+  body{background:#fff}
+  .no-print{display:none!important}
+  a[href]:after{content:none!important}
+  .contract-input,.contract-input-inline{border-bottom:1px solid #000}
+  .page{padding:6mm;height:auto;box-shadow:none}
+  .signature-canvas{border:1px solid #000}
+  html,body{break-after:avoid;break-inside:avoid;page-break-after:avoid}
+
+  .main ul, .main ol {
+    margin: 4px 0;
+    line-height: 1.45;
+  }
+  .main li {
+    margin-bottom: 3px;
+  }
+  .main {
+    column-gap: 10px;
+    align-items: start;
+  }
+}
