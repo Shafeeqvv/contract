@@ -26,6 +26,14 @@ table td { padding:1px 2px; vertical-align:top; }
   body { font-size:9px; }
   .no-print { display:none !important; }
   .page { page-break-inside: avoid; }
+  .watermark {
+    position:absolute;  /* fixed ensures it prints on page */
+    top:30%;
+    left:35%;
+    z-index:0;
+    opacity:0.2;     /* keep light */
+    pointer-events:none;
+  }
 }
 </style>
 </head>
@@ -172,13 +180,13 @@ table td { padding:1px 2px; vertical-align:top; }
   <strong style="font-size:11px;color:#9d174d;display:block;margin-top:2px">TERMS AND CONDITIONS FOR RESIDENTIAL GAS SUPPLY CONTRACT</strong>
   <ol style="font-size:9px; padding-left:16px; margin-top:2px;">
     <li><strong>Customer Documentation:</strong>
-      <ul>
+      <ul style="list-style: disc;">
         <li>The tenant must provide the EID copy, Passport copy & Tenancy contract copy before LPG connection or activation.</li>
         <li>All required documents must be submitted through the company’s online portal.</li>
       </ul>
     </li>
     <li><strong>Security Deposit & Refund:</strong>
-      <ul>
+      <ul style="list-style: disc;">
         <li>A refundable security deposit is required prior to LPG connection as per the agreed terms.</li>
         <li>The deposit will be refunded only upon submission of the original contract and Emirates ID copy of the tenant.</li>
         <li>Refund will be given only to the authorized person who signed the contract; ten working days needed for the refund process.</li>
@@ -193,7 +201,7 @@ table td { padding:1px 2px; vertical-align:top; }
       </ul>
     </li>
     <li><strong>Gas Leakage or Emergency:</strong>
-      <ul>
+      <ul style="list-style: disc;">
         <li>In case of any gas leak or system malfunction, the tenant must immediately contact MAF FIRE MIDDLE EAST’s emergency hotline and evacuate the premises if required.</li>
         <li>Turn off the LPG supply using the emergency switch.</li>
         <li>Inform the Building Management and Civil Defense immediately.</li>
@@ -209,14 +217,14 @@ table td { padding:1px 2px; vertical-align:top; }
       </ul>
     </li>
     <li><strong>Disconnection and Vacating:</strong>
-      <ul>
+      <ul style="list-style: disc;">
         <li>Tenants intending to vacate the premises or discontinue service must submit a disconnection request at least ten days in advance.</li>
         <li>A clearance certificate must be obtained from the company upon vacating.</li>
         <li>A disconnection fee will apply and must be settled prior to processing or will be deducted in deposit.</li>
       </ul>
     </li>
     <li><strong>Liability and Compensation:</strong>
-      <ul>
+      <ul style="list-style: disc;">
         <li>The tenant agrees that the company shall not be required to provide any compensation for damages resulting from the tenant’s actions, misuse, or negligence.</li>
         <li>The tenant further agrees not to make or pursue any claims against the company in respect of such losses or damages.</li>
         <li>If the tenant has home insurance, a copy of the policy should be provided to the company.</li>
@@ -229,13 +237,13 @@ table td { padding:1px 2px; vertical-align:top; }
     <strong style="font-size:11px;color:#9d174d;display:block;margin-top:2px">الشروط والأحكام لعقد توريد الغاز السكني</strong>
     <ol style="font-size:9px; padding-right:16px; margin-top:2px; list-style-type:decimal;">
       <li><strong>توثيق العميل:</strong>
-        <ul>
+        <ul style="list-style: disc;">
           <li>يجب على المستأجر تقديم نسخة من بطاقة الهوية الإلكترونية، جواز السفر، وعقد الإيجار قبل توصيل أو تفعيل الغاز.</li>
           <li>يجب تقديم جميع المستندات المطلوبة عبر البوابة الإلكترونية للشركة.</li>
         </ul>
       </li>
       <li><strong>التأمين والاسترداد:</strong>
-        <ul>
+        <ul style="list-style: disc;">
           <li>مطلوب وديعة تأمين قابلة للاسترداد قبل توصيل الغاز وفقاً للشروط المتفق عليها.</li>
           <li>يتم استرداد التأمين فقط بعد تقديم العقد الأصلي ونسخة من بطاقة الهوية الإماراتية للمستأجر.</li>
           <li>يتم الاسترداد للشخص المخول فقط الذي وقع العقد، وتستغرق العملية عشرة أيام عمل.</li>
@@ -244,13 +252,13 @@ table td { padding:1px 2px; vertical-align:top; }
         </ul>
       </li>
       <li><strong>التركيب والصيانة:</strong>
-        <ul>
+        <ul style="list-style: disc;">
           <li>يجب تنفيذ جميع أعمال التركيب، التوصيل، الفصل والصيانة فقط بواسطة الفنيين المعتمدين من شركة ماف فاير ميدل إيست. الشركة غير مسؤولة عن أي سوء استخدام أو تعامل غير مصرح به مع النظام.</li>
           <li>يتحمل المستأجر تكلفة أي خدمات مثل الإصلاح أو استبدال قطع الغيار خلال فترة العقد.</li>
         </ul>
       </li>
       <li><strong>تسرب الغاز أو الطوارئ:</strong>
-        <ul>
+        <ul style="list-style: disc;">
           <li>في حالة حدوث أي تسرب للغاز أو خلل في النظام، يجب على المستأجر الاتصال فوراً بالخط الساخن للطوارئ وإخلاء المكان إذا لزم الأمر.</li>
           <li>إيقاف تشغيل الغاز باستخدام مفتاح الطوارئ.</li>
           <li>إبلاغ إدارة المبنى والدفاع المدني فوراً.</li>
@@ -258,7 +266,7 @@ table td { padding:1px 2px; vertical-align:top; }
         </ul>
       </li>
       <li><strong>الفواتير والرسوم:</strong>
-        <ul>
+        <ul style="list-style: disc;">
           <li>يتم إصدار فواتير الغاز شهرياً بناءً على قراءة العداد الفعلية، شاملة ضريبة القيمة المضافة بنسبة 5٪.</li>
           <li>قد تتغير أسعار الغاز بناءً على ظروف السوق.</li>
           <li>تطبق رسوم إدارية شهرية إضافية، وإذا لم تُسدد تُضاف إلى فاتورة الشهر التالي.</li>
@@ -266,14 +274,14 @@ table td { padding:1px 2px; vertical-align:top; }
         </ul>
       </li>
       <li><strong>الفصل والإخلاء:</strong>
-        <ul>
+        <ul style="list-style: disc;">
           <li>يجب على المستأجرين الراغبين في الإخلاء أو فصل الخدمة تقديم طلب الفصل قبل عشرة أيام على الأقل.</li>
           <li>يجب الحصول على شهادة براءة ذمة من الشركة عند الإخلاء.</li>
           <li>تطبق رسوم الفصل ويجب تسويتها قبل المعالجة أو تُخصم من التأمين.</li>
         </ul>
       </li>
       <li><strong>المسؤولية والتعويض:</strong>
-        <ul>
+        <ul style="list-style: disc;">
           <li>يوافق المستأجر على أن الشركة غير ملزمة بتقديم أي تعويض عن الأضرار الناتجة عن أفعال المستأجر أو سوء الاستخدام أو الإهمال.</li>
           <li>يوافق المستأجر كذلك على عدم تقديم أو متابعة أي مطالبات ضد الشركة بشأن هذه الخسائر أو الأضرار.</li>
           <li>إذا كان لدى المستأجر تأمين منزلي، يجب تقديم نسخة من الوثيقة للشركة.</li>
