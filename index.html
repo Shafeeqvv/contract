@@ -340,10 +340,18 @@ function updateArabicValues() {
 
 document.querySelectorAll('input').forEach(inp=>inp.addEventListener('input',updateArabicValues));
 
-function printContract(){
+function printContract() {
   updateArabicValues();
+
+  const enscoreNo = document.getElementById('enscoreNo').value || 'xxxx';
+  document.title = `contract_${enscoreNo}`; // dynamically change page title
+
   window.print();
+
+  // Optional: restore original title
+  setTimeout(() => { document.title = "Central Gas Supply Contract"; }, 1000);
 }
+
 
 // Signature Pad
 class SignaturePad {
