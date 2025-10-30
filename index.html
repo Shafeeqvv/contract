@@ -6,33 +6,41 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" type="text/css" href="assets/style.css">
 <style>
-body { font-family: Arial, sans-serif; margin:0; padding:0; }
-.page { padding: 8px 16px; font-size:10px; line-height:1.2; position:relative; }
-.header, .footer { display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; }
-.leftlogos img { margin-right:4px; height:20px; }
-.title-area { text-align:center; margin-bottom:4px; }
-.title-area h1 { font-size:12px; margin:2px 0; }
-.contract-input, .contract-input-inline { font-size:10px; padding:2px; width:100%; box-sizing:border-box; }
-.contract-input-inline { width:80px; display:inline-block; }
-table { width:100%; border-collapse:collapse; margin:2px 0; }
-table td { padding:1px 2px; vertical-align:top; }
-.arabic { direction:rtl; }
-.list-rtl { padding-right:16px; margin:2px 0; }
-.signature-canvas { border:1px solid #000; width:200px; height:60px; }
-.sig-image { width:200px; height:40px; }
-.watermark { position:absolute; top:30%; left:35%; font-size:200px; color:#e5e7eb; opacity:0.2; z-index:0; pointer-events:none; }
-.section { margin-bottom:8px; }
-@media print {
-  body { font-size:9px; }
-  .no-print { display:none !important; }
-  .page { page-break-inside: avoid; }
-  .watermark {
-    position:absolute;  /* fixed ensures it prints on page */
-    top:30%;
-    left:35%;
-    z-index:0;
-    opacity:0.2;     /* keep light */
-    pointer-events:none;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+body {font-family:"Inter",sans-serif;margin:0;background:#f3f4f6;}
+.page {width:210mm;height:297mm;margin:0 auto;background:#fff;box-sizing:border-box;padding:6mm 10mm;display:flex;flex-direction:column;gap:4px;}
+.header {display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 8px;}
+.toll-free-box {font-size: 9px; font-weight: bold; color: #b91c1c; padding: 2px 6px; border: 1px solid #fecaca; border-radius: 3px; background: #fff7f7; white-space: nowrap;}
+.title-area {display: flex; flex-direction: column; align-items: center; gap: 2px;}
+.title-logo {width: 50px; height: auto; margin-bottom: 2px;}
+.title-area h1 {font-size: 14px; color: #9d174d; margin: 0; font-weight: 700; text-align: center;}
+.title-area p {font-size: 9px; margin: 0; text-align: center;}
+.header-logo-right img {width: 130px; height: auto;}
+.main {display:grid; grid-template-columns:1fr 1fr; gap:12px; flex:1; align-items:start; font-size:11px; line-height:1.35;}
+.main p, .main li, .main ul, .main ol {line-height:1.35; margin:3px 0; font-size:11px}
+.contract-input, .contract-input-inline {border:0;border-bottom:1px solid #9d174d;background:transparent;padding:0 2px;font-weight:600;font-size:11px;outline:none}
+.contract-input-inline{width:100px;text-align:center}
+.contract-input-full{width:100%}
+.signature-canvas{border:1px solid #9d174d;width:100%;height:60px;background:#fff;touch-action:none;border-radius:4px}
+.sig-image{display:block;margin:2px auto;height:36px}
+.arabic{direction:rtl;text-align:right}
+ul, ol{margin:2px 0;padding-left:18px;line-height:1.35}
+ul{list-style-type:disc;}
+ul ul{list-style-type:circle;}
+.list-rtl ul{list-style-type:disc; padding-right:18px;}
+.list-rtl ul ul{list-style-type:circle;}
+.main > div {display: flex; flex-direction: column; justify-content: flex-start;}
+.footer{border-top:1px solid #f0abfc;padding-top:4px;display:grid;grid-template-columns:1fr 1fr;gap:6px;align-items:start;font-size:11px;}
+@media print{
+  body{background:#fff}
+  .no-print{display:none!important}
+  a[href]:after{content:none!important}
+  .contract-input,.contract-input-inline{border-bottom:1px solid #000}
+  .page{padding:6mm;height:auto;box-shadow:none}
+  .signature-canvas{border:1px solid #000}
+  html,body{break-after:avoid;break-inside:avoid;page-break-after:avoid}
+  .page {
+    page-break-after: always;
   }
 }
 </style>
@@ -41,122 +49,135 @@ table td { padding:1px 2px; vertical-align:top; }
 
 <!-- PAGE 1 -->
 <div class="page" id="contractPage1">
-
+  <!-- HEADER -->
   <div class="header">
-    <div class="toll-free-box">TOLL FREE: 800FIRE</div>
-    <div class="title-area">
-      <img src="assets/logo1.png" class="title-logo">
-      <h1>CENTRAL GAS SUPPLY CONTRACT | عقد توريد الغاز المركزي</h1>
-      <p>Contact: +971 4 239 7910</p>
-    </div>
-    <div class="header-logo-right">
-      <img src="assets/Picture.png" class="header-logo">
-    </div>
+  <div class="toll-free-box">TOLL FREE: 800FIRE</div>
+  <div class="title-area">
+    <img src="assets/logo1.png" class="title-logo">
+    <h1>CENTRAL GAS SUPPLY CONTRACT | عقد توريد الغاز المركزي</h1>
+    <p>Contact: +971 4 239 7910</p>
+    <p style="font-size:9px;margin-top:2px;">Enscore No: <input id="enscoreNo" class="contract-input-inline"></p>
+  </div>
+  <div class="header-logo-right">
+    <img src="assets/Picture.png" class="header-logo">
+  </div>
   </div>
 
-  <!-- Enscore Number -->
-  <div class="section">
-    <strong style="font-size:11px;color:#9d174d">Enscore No / رقم العقد</strong>
-    <p>
-      <input id="enscoreNo" type="number"class="contract-input-inline" placeholder="Enter Enscore No">
-      &nbsp; | &nbsp;
-      <span class="arabic">الرقم: <span id="enscoreNoArabic">................................</span></span>
-    </p>
-  </div>
 
-  <!-- English Section -->
-  <div class="section" id="englishSection">
-    <strong style="font-size:11px;color:#9d174d">Contract Validity & Parties</strong>
-    <p>This contract is valid from the date below until the Second Party vacates the flat and a clearance certificate is issued.</p>
-    <p><strong>On/</strong> <input id="contractDate" type="date" class="contract-input-inline"></p>
-    <p><strong>First Party:</strong> MAF FIRE MIDDLE EAST L.L.C</p>
-    <p style="font-size:9px;">P.O. Box: 49895, Al Qusais, Dubai-UAE | TEL: +97142397910</p>
-    <p style="font-size:9px;">Email: info@mafgas.ae, www.maffire.com</p>
-
-    <strong style="font-size:11px;color:#9d174d;margin-top:2px;display:block">Second Party Details / Tenant</strong>
-    <table style="font-size:9px;">
-      <tr><td style="width:28%">Name:</td><td><input id="secondPartyName" class="contract-input"></td></tr>
-      <tr><td>Flat/Unit No:</td><td><input id="flatNumber" class="contract-input"></td></tr>
-      <tr><td>Building Name:</td><td><input id="buildingName" class="contract-input"></td></tr>
-      <tr><td>Contact No:</td><td><input id="contactNo" class="contract-input"></td></tr>
-      <tr><td>Email ID:</td><td><input id="emailId" class="contract-input"></td></tr>
-      <tr><td>Open Reading:</td><td><input id="openReading" class="contract-input"></td></tr>
-    </table>
-
-    <strong style="font-size:11px;color:#9d174d;margin-top:2px;display:block">Subject of Contract</strong>
-    <p>Connect the Second Party's flat with the Central Gas system & supply gas.</p>
-
-    <strong style="font-size:11px;color:#9d174d;display:block">Agreements & Terms</strong>
-    <ul style="font-size:9px;">
-      <li>MAF FIRE MIDDLE EAST L.L.C undertakes to supply continuous gas flow and provide service on request.</li>
-      <li>Payment: AED <input id="totalAed" class="contract-input-inline"> divided as below:
-        <ul>
-          <li>Connection Fee (Cooker): AED <input id="connectionFee" class="contract-input-inline"></li>
-          <li>Gas Consumption Deposit (Refundable): AED <input id="depositAmount" class="contract-input-inline"></li>
-          <li>Disconnection Fee & Clearance Certificate: AED <input id="disconnectionFee" class="contract-input-inline"></li>
-        </ul>
-      </li>
-      <li>Monthly Service Fee: AED <input id="monthlyFee" class="contract-input-inline"> (around the clock)</li>
-      <li>Received: AED <input id="receivedAmount" class="contract-input-inline"> from the Second Party.</li>
-      <li>Maintenance Charges: AED <input id="maintenanceCharges" class="contract-input-inline"></li>
-      <li>Consumption Invoice: MAF FIRE forwards the consumption invoice periodically, calculating price per cubic meter. Price subject to change by EMARAT.</li>
-      <li>Contract as Receipt: This contract is to be treated as an official receipt voucher.</li>
-    </ul>
-  </div>
-
-  <!-- Arabic Section -->
-  <div class="section arabic" id="arabicSection">
-    <strong style="font-size:11px;color:#9d174d">مدة العقد والأطراف</strong>
-    <p>يبدأ تنفيذ هذا العقد من تاريخه وحتى إخلاء الطرف الثاني للشقة والحصول على براءة ذمة.</p>
-    <p><strong>بتاريخ /</strong> <span id="contractDateArabic">................................</span></p>
-    <p><strong>الطرف الأول:</strong> شركة ماف فاير ميدل إيست ذ.م.م</p>
-    <p style="font-size:9px">ص.ب: 49895، القصيص، دبي - الإمارات | هاتف: 97142397910</p>
-
-    <strong style="font-size:11px;color:#9d174d;margin-top:2px;display:block">تفاصيل الطرف الثاني / المستأجر</strong>
-    <table style="font-size:9px;">
-      <tr><td style="width:28%">الاسم:</td><td><span id="secondPartyNameArabic">................................</span></td></tr>
-      <tr><td>رقم الشقة:</td><td><span id="flatNumberArabic">................................</span></td></tr>
-      <tr><td>اسم المبنى:</td><td><span id="buildingNameArabic">................................</span></td></tr>
-      <tr><td>رقم الاتصال:</td><td><span id="contactNoArabic">................................</span></td></tr>
-      <tr><td>البريد الإلكتروني:</td><td><span id="emailArabic">................................</span></td></tr>
-      <tr><td>قراءة الفتح:</td><td><span id="openReadingArabic">................................</span></td></tr>
-    </table>
-
-    <strong style="font-size:11px;color:#9d174d;margin-top:2px;display:block">موضوع العقد</strong>
-    <p>توصيل الشقة بنظام الغاز المركزي وتزويدها بالغاز.</p>
-
-    <strong style="font-size:11px;color:#9d174d;display:block">الاتفاقات والشروط</strong>
-    <ul class="list-rtl" style="font-size:9px;">
-      <li>تلتزم شركة ماف فاير ميدل إيست بتزويد الغاز دون انقطاع وتقديم الخدمة عند الطلب.</li>
-      <li>المبلغ الإجمالي: درهم <span id="totalAedArabic">................................</span> موزع كالتالي:
-        <ul>
-          <li>رسوم الربط: درهم <span id="connectionFeeArabic">................................</span></li>
-          <li>تأمين الاستهلاك (قابل للاسترداد): درهم <span id="depositAmountArabic">................................</span></li>
-          <li>رسوم الفصل وبراءة الذمة: درهم <span id="disconnectionFeeArabic">................................</span></li>
-        </ul>
-      </li>
-      <li>رسوم الخدمة الشهرية: درهم <span id="monthlyFeeArabic">................................</span></li>
-      <li>تم استلام: درهم <span id="receivedAmountArabic">................................</span></li>
-      <li>رسوم الصيانة: درهم <span id="maintenanceChargesArabic">................................</span></li>
-      <li>تُحسب فواتير الاستهلاك حسب سعر إمارات للمتر المكعب.</li>
-      <li>يُعتبر هذا العقد سند استلام رسمي.</li>
-    </ul>
-  </div>
-
-  <!-- Page 1 Signature -->
-  <div class="footer" style="margin-top:4px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+  <!-- TWO-COLUMN BILINGUAL SECTION -->
+  <div class="main"  style="margin-top: 20px;">
+    <!-- English Left -->
     <div>
-      <div style="font-size:10px;font-weight:600">First Party (MAF FIRE)</div>
-      <canvas id="firstPartySignatureCanvas1" class="signature-canvas"></canvas>
-      <button onclick="clearSignature('firstPartySignatureCanvas1')" class="no-print" style="background:#dc2626;color:#fff;border:0;padding:2px 6px;border-radius:3px;font-size:10px">Clear Signature</button>
+      <strong style="font-size:11px;color:#9d174d" style="margin-top: 20px;">Contract Validity & Parties</strong>
+      <p>This contract is valid from the date below until the Second Party vacates the flat and a clearance certificate is issued.</p>
+      <p><strong>On/</strong> <input id="contractDate" type="date" class="contract-input-inline"></p>
+      <p><strong>First Party:</strong> MAF FIRE MIDDLE EAST L.L.C</p>
+      <p style="font-size:9px;">P.O. Box: 49895, Al Qusais, Dubai-UAE | TEL: +97142397910</p>
+      <p style="font-size:9px;">Email: info@mafgas.ae, www.maffire.com</p>
+
+      <strong style="font-size:11px;color:#9d174d;display:block;margin-top:4px" style="margin-top: 20px;">Second Party Details / Tenant</strong>
+      <table style="font-size:9px;">
+        <tr><td style="width:28%">Name:</td><td><input id="secondPartyName" class="contract-input"></td></tr>
+        <tr><td>Flat/Unit No:</td><td><input id="flatNumber" class="contract-input"></td></tr>
+        <tr><td>Building Name:</td><td><input id="buildingName" class="contract-input"></td></tr>
+        <tr><td>Contact No:</td><td><input id="contactNo" class="contract-input"></td></tr>
+        <tr><td>Email ID:</td><td><input id="emailId" class="contract-input"></td></tr>
+        <tr><td>Open Reading:</td><td><input id="openReading" class="contract-input"></td></tr>
+      </table>
+
+      <strong style="font-size:11px;color:#9d174d;display:block;margin-top:4px" style="margin-top: 20px;" style="margin-top: 20px;">Subject of Contract</strong>
+      <p>Connect the Second Party's flat with the Central Gas system & supply gas.</p>
+
+      <strong style="font-size:11px;color:#9d174d;display:block" style="margin-top: 20px;">Agreements & Terms</strong>
+      <ul style="font-size:9px;">
+        <li>MAF FIRE MIDDLE EAST L.L.C undertakes to supply continuous gas flow and provide service on request.</li>
+        <li>Payment: AED <input id="totalAed" class="contract-input-inline"> divided as below:
+          <ul>
+            <li>Connection Fee (Cooker): AED <input id="connectionFee" class="contract-input-inline"></li>
+            <li>Gas Consumption Deposit (Refundable): AED <input id="depositAmount" class="contract-input-inline"></li>
+            <li>Disconnection Fee & Clearance Certificate: AED <input id="disconnectionFee" class="contract-input-inline"></li>
+          </ul>
+        </li>
+        <li>Monthly Service Fee: AED <input id="monthlyFee" class="contract-input-inline"></li>
+        <li>Received: AED <input id="receivedAmount" class="contract-input-inline"></li>
+        <li>Maintenance Charges: AED <input id="maintenanceCharges" class="contract-input-inline"></li>
+        <li>Consumption Invoice: MAF FIRE forwards the invoice periodically based on EMARAT rates.</li>
+        <li>Contract as Receipt: This contract is to be treated as an official receipt voucher.</li>
+      </ul>
     </div>
-    <div>
-      <div style="font-size:10px;font-weight:600">Second Party / الطرف الثاني</div>
-      <canvas id="secondPartySignatureCanvas1" class="signature-canvas"></canvas>
-      <button onclick="clearSignature('secondPartySignatureCanvas1')" class="no-print" style="background:#dc2626;color:#fff;border:0;padding:2px 6px;border-radius:3px;font-size:10px">Clear Signature</button>
+
+    <!-- Arabic Right -->
+    <div class="arabic">
+      <strong style="font-size:11px;color:#9d174d" style="margin-top: 20px;">مدة العقد والأطراف</strong>
+      <p>يبدأ تنفيذ هذا العقد من تاريخه وحتى إخلاء الطرف الثاني للشقة والحصول على براءة ذمة.</p>
+      <p><strong>بتاريخ /</strong> <span id="contractDateArabic">................................</span></p>
+      <p><strong>الطرف الأول:</strong> شركة ماف فاير ميدل إيست ذ.م.م</p>
+      <p style="font-size:9px;">ص.ب: 49895، القصيص، دبي - الإمارات | هاتف: 97142397910</p>
+
+      <strong style="font-size:11px;color:#9d174d;display:block;margin-top:4px" style="margin-top: 20px;">تفاصيل الطرف الثاني / المستأجر</strong>
+      <table style="font-size:9px;">
+        <tr><td style="width:28%">الاسم:</td><td><span id="secondPartyNameArabic">................................</span></td></tr>
+        <tr><td>رقم الشقة:</td><td><span id="flatNumberArabic">................................</span></td></tr>
+        <tr><td>اسم المبنى:</td><td><span id="buildingNameArabic">................................</span></td></tr>
+        <tr><td>رقم الاتصال:</td><td><span id="contactNoArabic">................................</span></td></tr>
+        <tr><td>البريد الإلكتروني:</td><td><span id="emailArabic">................................</span></td></tr>
+        <tr><td>قراءة الفتح:</td><td><span id="openReadingArabic">................................</span></td></tr>
+      </table>
+
+      <strong style="font-size:11px;color:#9d174d;display:block;margin-top:4px" style="margin-top: 20px;">موضوع العقد</strong>
+      <p>توصيل الشقة بنظام الغاز المركزي وتزويدها بالغاز.</p>
+
+      <strong style="font-size:11px;color:#9d174d;display:block" style="margin-top: 20px;">الاتفاقات والشروط</strong>
+      <ul class="list-rtl" style="font-size:9px;">
+        <li>تلتزم شركة ماف فاير ميدل إيست بتزويد الغاز دون انقطاع وتقديم الخدمة عند الطلب.</li>
+        <li>المبلغ الإجمالي: درهم <span id="totalAedArabic">................................</span> موزع كالتالي:
+          <ul>
+            <li>رسوم الربط: درهم <span id="connectionFeeArabic">................................</span></li>
+            <li>تأمين الاستهلاك (قابل للاسترداد): درهم <span id="depositAmountArabic">................................</span></li>
+            <li>رسوم الفصل وبراءة الذمة: درهم <span id="disconnectionFeeArabic">................................</span></li>
+          </ul>
+        </li>
+        <li>رسوم الخدمة الشهرية: درهم <span id="monthlyFeeArabic">................................</span></li>
+        <li>تم استلام: درهم <span id="receivedAmountArabic">................................</span></li>
+        <li>رسوم الصيانة: درهم <span id="maintenanceChargesArabic">................................</span></li>
+        <li>تُحسب فواتير الاستهلاك حسب سعر إمارات للمتر المكعب.</li>
+        <li>يُعتبر هذا العقد سند استلام رسمي.</li>
+      </ul>
     </div>
+  </div>
+
+  <!-- SIGNATURES -->
+<div class="footer" style="margin-top: 50px; grid-template-columns: 1fr 1fr; gap: 6px;">
+  <!-- First Party Signature -->
+  <div style="display:flex; flex-direction:column; align-items:center;">
+    <div style="font-size:10px;font-weight:600">First Party (MAF FIRE)</div>
+    <canvas id="firstPartySignatureCanvas1" class="signature-canvas"></canvas>
+    <button onclick="clearSignature('firstPartySignatureCanvas1')" class="no-print"
+      style="background:#dc2626;color:#fff;border:0;padding:2px 6px;border-radius:3px;font-size:10px">
+      Clear Signature
+    </button>
+  </div>
+
+  <!-- Second Party Signature -->
+  <div style="display:flex; flex-direction:column; align-items:center;">
+    <div style="font-size:10px;font-weight:600">Second Party / الطرف الثاني</div>
+    <canvas id="secondPartySignatureCanvas1" class="signature-canvas"></canvas>
+    <button onclick="clearSignature('secondPartySignatureCanvas1')" class="no-print"
+      style="background:#dc2626;color:#fff;border:0;padding:2px 6px;border-radius:3px;font-size:10px">
+      Clear Signature
+    </button>
+  </div>
+
+  <!-- Center Image Below -->
+  <div style="grid-column: span 2; display:flex; justify-content:center; margin-top:50px;">
+    <img src="assets/Picture.png" style="height:auto; width:300px;opacity:0.5;" >
   </div>
 </div>
+
+</div>
+
+<!-- PAGE 2 TERMS & CONDITIONS -->
+<!-- ... Keep your existing Page 2 content ... -->
 
 <!-- PAGE 2 TERMS & CONDITIONS (English + Arabic) -->
 <div class="page" id="contractPage2">
@@ -287,19 +308,28 @@ table td { padding:1px 2px; vertical-align:top; }
   </div>
 
   <!-- Page 2 Signature -->
-  <div class="footer" style="margin-top:4px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
-    <div>
-      <div style="font-size:10px;font-weight:600">First Party (MAF FIRE)</div>
-      <canvas id="firstPartySignatureCanvas2" class="signature-canvas"></canvas>
-      <button onclick="clearSignature('firstPartySignatureCanvas2')" class="no-print" style="background:#dc2626;color:#fff;border:0;padding:2px 6px;border-radius:3px;font-size:10px">Clear Signature</button>
-    </div>
-    <div>
-      <div style="font-size:10px;font-weight:600">Second Party / الطرف الثاني</div>
-      <canvas id="secondPartySignatureCanvas2" class="signature-canvas"></canvas>
-      <button onclick="clearSignature('secondPartySignatureCanvas2')" class="no-print" style="background:#dc2626;color:#fff;border:0;padding:2px 6px;border-radius:3px;font-size:10px">Clear Signature</button>
-    </div>
+  <!-- PAGE 2 SIGNATURES -->
+<div class="footer">
+  <div>
+    <div style="font-size:10px;font-weight:600">First Party (MAF FIRE)</div>
+    <canvas id="firstPartySignatureCanvas2" class="signature-canvas"></canvas>
+    <button onclick="clearSignature('firstPartySignatureCanvas2')" class="no-print"
+      style="background:#dc2626;color:#fff;border:0;padding:2px 6px;border-radius:3px;font-size:10px">
+      Clear Signature
+    </button>
+  </div>
+  <div>
+    <div style="font-size:10px;font-weight:600">Second Party / الطرف الثاني</div>
+    <canvas id="secondPartySignatureCanvas2" class="signature-canvas"></canvas>
+    <button onclick="clearSignature('secondPartySignatureCanvas2')" class="no-print"
+      style="background:#dc2626;color:#fff;border:0;padding:2px 6px;border-radius:3px;font-size:10px">
+      Clear Signature
+    </button>
   </div>
 </div>
+
+</div>
+
 
 <!-- PRINT BUTTON -->
 <div style="position:fixed;bottom:8px;left:50%;transform:translateX(-50%);" class="no-print">
@@ -322,8 +352,7 @@ function updateArabicValues() {
     'buildingName':'buildingNameArabic',
     'contactNo':'contactNoArabic',
     'emailId':'emailArabic',
-    'openReading':'openReadingArabic',
-    'enscoreNo':'enscoreNoArabic'
+    'openReading':'openReadingArabic'
   };
   for(const [en,ar] of Object.entries(map)){
     const val = document.getElementById(en)?.value || FILL;
@@ -335,19 +364,7 @@ function updateArabicValues() {
 }
 
 document.querySelectorAll('input').forEach(inp=>inp.addEventListener('input',updateArabicValues));
-
-function printContract() {
-  updateArabicValues();
-
-  const enscoreNo = document.getElementById('enscoreNo').value || 'xxxx';
-  document.title = `contract_${enscoreNo}`; // dynamically change page title
-
-  window.print();
-
-  // Optional: restore original title
-  setTimeout(() => { document.title = "Central Gas Supply Contract"; }, 1000);
-}
-
+function printContract() { updateArabicValues(); window.print(); }
 
 // Signature Pad
 class SignaturePad {
@@ -359,16 +376,12 @@ class SignaturePad {
     this.resizeCanvas();
     this.ctx.lineWidth = 2; this.ctx.lineJoin = 'round'; this.ctx.lineCap = 'round';
     this.ctx.strokeStyle = '#000';
-    canvas.addEventListener('mousedown', e => this.startDraw(e));
-    canvas.addEventListener('mousemove', e => this.draw(e));
-    canvas.addEventListener('mouseup', e => this.endDraw());
-    canvas.addEventListener('mouseleave', e => this.endDraw());
-    canvas.addEventListener('touchstart', e => this.startDraw(e,true));
-    canvas.addEventListener('touchmove', e => this.draw(e,true));
-    canvas.addEventListener('touchend', e => this.endDraw());
-    canvas.addEventListener('touchcancel', e => this.endDraw());
-    canvas.addEventListener('touchstart', e => e.preventDefault(), {passive:false});
-    canvas.addEventListener('touchmove', e => e.preventDefault(), {passive:false});
+    ['mousedown','mousemove','mouseup','mouseleave'].forEach(evt=>{
+      canvas.addEventListener(evt, e=>{ if(evt==='mousedown') this.startDraw(e); else if(evt==='mousemove') this.draw(e); else this.endDraw(); });
+    });
+    ['touchstart','touchmove','touchend','touchcancel'].forEach(evt=>{
+      canvas.addEventListener(evt, e=>{ if(evt==='touchstart') this.startDraw(e,true); else if(evt==='touchmove') this.draw(e,true); else this.endDraw(); e.preventDefault(); }, {passive:false});
+    });
     window.addEventListener('resize', ()=>this.resizeCanvas());
   }
   resizeCanvas() {
@@ -384,14 +397,16 @@ class SignaturePad {
   startDraw(e,touch=false){ const pos=this.getPos(e,touch); this.drawing=true; this.lastX=pos.x; this.lastY=pos.y; }
   draw(e,touch=false){ if(!this.drawing)return; const pos=this.getPos(e,touch); this.ctx.beginPath(); this.ctx.moveTo(this.lastX,this.lastY); this.ctx.lineTo(pos.x,pos.y); this.ctx.stroke(); this.lastX=pos.x; this.lastY=pos.y; }
   endDraw(){ this.drawing=false; }
-  clear(){ this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height); }
 }
 
-['firstPartySignatureCanvas1','secondPartySignatureCanvas1','firstPartySignatureCanvas2','secondPartySignatureCanvas2'].forEach(id=>{
-  new SignaturePad(document.getElementById(id));
-});
+// Initialize all signature pads
+['firstPartySignatureCanvas1','secondPartySignatureCanvas1','firstPartySignatureCanvas2','secondPartySignatureCanvas2']
+  .forEach(id=>new SignaturePad(document.getElementById(id)));
 
-function clearSignature(id){ document.getElementById(id).getContext('2d').clearRect(0,0,document.getElementById(id).width,document.getElementById(id).height);}
+function clearSignature(id){
+  const c = document.getElementById(id);
+  c.getContext('2d').clearRect(0,0,c.width,c.height);
+}
 </script>
 
 </body>
