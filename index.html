@@ -455,5 +455,34 @@ function uploadSignature(input, canvasId) {
 </script>
 
 
+<script>
+  // Function to load a default signature into a canvas
+  function loadDefaultSignature(canvasId, imagePath) {
+    const canvas = document.getElementById(canvasId);
+    const ctx = canvas.getContext('2d');
+    const defaultSignature = new Image();
+    defaultSignature.src = imagePath;
+    defaultSignature.onload = () => {
+      // Keep aspect ratio while fitting canvas
+      const ratio = Math.min(canvas.width / defaultSignature.width, canvas.height / defaultSignature.height);
+      const x = (canvas.width - defaultSignature.width * ratio) / 2;
+      const y = (canvas.height - defaultSignature.height * ratio) / 2;
+      ctx.drawImage(defaultSignature, x, y, defaultSignature.width * ratio, defaultSignature.height * ratio);
+    };
+  }
+
+  // Clear function
+  function clearSignature(canvasId) {
+    const canvas = document.getElementById(canvasId);
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  // Load default signatures
+  loadDefaultSignature('firstPartySignatureCanvas1', 'assets/signature1.jpeg');
+  loadDefaultSignature('firstPartySignatureCanvas2', 'assets/signature1.jpeg'); // for your other canvas
+</script>
+
+
 </body>
 </html>
