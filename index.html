@@ -65,86 +65,218 @@ ul ul{list-style-type:circle;}
 
 
   <!-- TWO-COLUMN BILINGUAL SECTION -->
-  <div class="main"  style="margin-top: 20px;">
-    <!-- English Left -->
-    <div>
-      <strong style="font-size:11px;color:#9d174d" style="margin-top: 20px;">Contract Validity & Parties</strong>
-      <p>This contract is valid from the date below until the Second Party vacates the flat and a clearance certificate is issued.</p>
-      <p><strong>On/</strong> <input id="contractDate" type="date" class="contract-input-inline"></p>
-      <p><strong>First Party:</strong> MAF GAS L.L.C</p>
-      <p style="font-size:9px;">P.O. Box: 49895, Al Qusais, Dubai-UAE | TEL: +97142397910</p>
-      <p style="font-size:9px;">Email: info@mafgas.ae, www.maffire.com</p>
+ 
+<div class="main" style="margin-top: 20px;">
 
-      <strong style="font-size:11px;color:#9d174d;display:block;margin-top:4px" style="margin-top: 20px;">Second Party Details / Tenant</strong>
-      <table style="font-size:9px;">
-        <tr><td style="width:28%">Name:</td><td><input id="secondPartyName" class="contract-input"></td></tr>
-        <tr><td>Flat/Unit No:</td><td><input id="flatNumber" class="contract-input"></td></tr>
-        <tr><td>Building Name:</td><td><input id="buildingName" class="contract-input"></td></tr>
-        <tr><td>Contact No:</td><td><input id="contactNo" class="contract-input"></td></tr>
-        <tr><td>Email ID:</td><td><input id="emailId" class="contract-input"></td></tr>
-        <tr><td>Open Reading:</td><td><input id="openReading" class="contract-input"></td></tr>
-      </table>
+  <!-- English Left -->
+  <div>
+    <strong style="font-size:11px; color:#9d174d; display:block; margin-top:20px;">
+      Contract Validity & Parties
+    </strong>
 
-      <strong style="font-size:11px;color:#9d174d;display:block;margin-top:4px" style="margin-top: 20px;" style="margin-top: 20px;">Subject of Contract</strong>
-      <p>Connect the Second Party's flat with the Central Gas system & supply gas.</p>
+    <p>This contract is valid from the date below until the Second Party vacates the flat and a clearance certificate is issued.</p>
 
-      <strong style="font-size:11px;color:#9d174d;display:block" style="margin-top: 20px;">Agreements & Terms</strong>
-      <ul style="font-size:9px;">
-        <li>MAF GAS L.L.C undertakes to supply continuous gas flow and provide service on request.</li>
-        <li>Payment: AED <input id="totalAed" class="contract-input-inline"> divided as below:
-          <ul>
-            <li>Connection Fee (Cooker): AED <input id="connectionFee" class="contract-input-inline"></li>
-            <li>Gas Consumption Deposit (Refundable): AED <input id="depositAmount" class="contract-input-inline"></li>
-            <li>Disconnection Fee & Clearance Certificate: AED <input id="disconnectionFee" class="contract-input-inline"></li>
-          </ul>
-        </li>
-        <li>Monthly Service Fee: AED <input id="monthlyFee" class="contract-input-inline"></li>
-        <li>Received: AED <input id="receivedAmount" class="contract-input-inline"></li>
-        <li>Maintenance Charges: AED <input id="maintenanceCharges" class="contract-input-inline"></li>
-        <li>Consumption Invoice: MAF FIRE forwards the invoice periodically based on EMARAT rates.</li>
-        <li>Contract as Receipt: This contract is to be treated as an official receipt voucher.</li>
-      </ul>
-    </div>
+    <p>
+      <strong>On/</strong>
+      <input id="contractDate" type="date" class="contract-input-inline">
+    </p>
 
-    <!-- Arabic Right -->
-    <div class="arabic">
-      <strong style="font-size:11px;color:#9d174d" style="margin-top: 20px;">مدة العقد والأطراف</strong>
-      <p>يبدأ تنفيذ هذا العقد من تاريخه وحتى إخلاء الطرف الثاني للشقة والحصول على براءة ذمة.</p>
-      <p><strong>بتاريخ /</strong> <span id="contractDateArabic">................................</span></p>
-      <p><strong>الطرف الأول:</strong> شركة ماف فاير ميدل إيست ذ.م.م</p>
-      <p style="font-size:9px;">ص.ب: 49895، القصيص، دبي - الإمارات | هاتف: 97142397910</p>
+    <p><strong>First Party:</strong> MAF GAS L.L.C</p>
+    <p style="font-size:9px;">P.O. Box: 49895, Al Qusais, Dubai-UAE | TEL: +97142397910</p>
+    <p style="font-size:9px;">Email: info@mafgas.ae, www.maffire.com</p>
 
-      <strong style="font-size:11px;color:#9d174d;display:block;margin-top:4px" style="margin-top: 20px;">تفاصيل الطرف الثاني / المستأجر</strong>
-      <table style="font-size:9px;">
-        <tr><td style="width:28%">الاسم:</td><td><span id="secondPartyNameArabic">................................</span></td></tr>
-        <tr><td>رقم الشقة:</td><td><span id="flatNumberArabic">................................</span></td></tr>
-        <tr><td>اسم المبنى:</td><td><span id="buildingNameArabic">................................</span></td></tr>
-        <tr><td>رقم الاتصال:</td><td><span id="contactNoArabic">................................</span></td></tr>
-        <tr><td>البريد الإلكتروني:</td><td><span id="emailArabic">................................</span></td></tr>
-        <tr><td>قراءة الفتح:</td><td><span id="openReadingArabic">................................</span></td></tr>
-      </table>
+    <strong style="font-size:11px; color:#9d174d; display:block; margin-top:20px;">
+      Second Party Details / Tenant
+    </strong>
 
-      <strong style="font-size:11px;color:#9d174d;display:block;margin-top:4px" style="margin-top: 20px;">موضوع العقد</strong>
-      <p>توصيل الشقة بنظام الغاز المركزي وتزويدها بالغاز.</p>
+    <table style="font-size:9px;">
+      <tr>
+        <td style="width:28%">Name:</td>
+        <td><input id="secondPartyName" class="contract-input"></td>
+      </tr>
+      <tr>
+        <td>Flat/Unit No:</td>
+        <td><input id="flatNumber" class="contract-input"></td>
+      </tr>
+      <tr>
+        <td>Building Name:</td>
+        <td><input id="buildingName" class="contract-input"></td>
+      </tr>
+      <tr>
+        <td>Contact No:</td>
+        <td><input id="contactNo" class="contract-input"></td>
+      </tr>
+      <tr>
+        <td>Email ID:</td>
+        <td><input id="emailId" class="contract-input"></td>
+      </tr>
+      <tr>
+        <td>Open Reading:</td>
+        <td><input id="openReading" class="contract-input"></td>
+      </tr>
+    </table>
 
-      <strong style="font-size:11px;color:#9d174d;display:block" style="margin-top: 20px;">الاتفاقات والشروط</strong>
-      <ul class="list-rtl" style="font-size:9px;">
-        <li>تلتزم شركة ماف فاير ميدل إيست بتزويد الغاز دون انقطاع وتقديم الخدمة عند الطلب.</li>
-        <li>المبلغ الإجمالي: درهم <span id="totalAedArabic">................................</span> موزع كالتالي:
-          <ul>
-            <li>رسوم الربط: درهم <span id="connectionFeeArabic">................................</span></li>
-            <li>تأمين الاستهلاك (قابل للاسترداد): درهم <span id="depositAmountArabic">................................</span></li>
-            <li>رسوم الفصل وبراءة الذمة: درهم <span id="disconnectionFeeArabic">................................</span></li>
-          </ul>
-        </li>
-        <li>رسوم الخدمة الشهرية: درهم <span id="monthlyFeeArabic">................................</span></li>
-        <li>تم استلام: درهم <span id="receivedAmountArabic">................................</span></li>
-        <li>رسوم الصيانة: درهم <span id="maintenanceChargesArabic">................................</span></li>
-        <li>تُحسب فواتير الاستهلاك حسب سعر إمارات للمتر المكعب.</li>
-        <li>يُعتبر هذا العقد سند استلام رسمي.</li>
-      </ul>
-    </div>
+    <strong style="font-size:11px; color:#9d174d; display:block; margin-top:20px;">
+      Subject of Contract
+    </strong>
+
+    <p>Connect the Second Party's flat with the Central Gas system & supply gas.</p>
+
+    <strong style="font-size:11px; color:#9d174d; display:block; margin-top:20px;">
+      Agreements & Terms
+    </strong>
+
+    <ul style="font-size:9px;">
+      <li>MAF GAS L.L.C undertakes to supply continuous gas flow and provide service on request.</li>
+
+      <li>
+        Payment: AED
+        <input id="totalAed" class="contract-input-inline">
+        divided as below:
+        <ul>
+          <li>
+            Connection Fee (Cooker): AED
+            <input id="connectionFee" class="contract-input-inline">
+          </li>
+          <li>
+            Gas Consumption Deposit (Refundable): AED
+            <input id="depositAmount" class="contract-input-inline">
+          </li>
+          <li>
+            Disconnection Fee & Clearance Certificate: AED
+            <input id="disconnectionFee" class="contract-input-inline">
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        Monthly Service Fee: AED
+        <input id="monthlyFee" class="contract-input-inline">
+      </li>
+
+      <li>
+        Received: AED
+        <input id="receivedAmount" class="contract-input-inline">
+      </li>
+
+      <li>
+        Maintenance Charges: AED
+        <input id="maintenanceCharges" class="contract-input-inline">
+      </li>
+
+      <li>Consumption Invoice: MAF GAS forwards the invoice periodically based on EMARAT rates.</li>
+
+      <li>Contract as Receipt: This contract is to be treated as an official receipt voucher.</li>
+    </ul>
   </div>
+
+  <!-- Arabic Right -->
+  <div class="arabic">
+
+    <strong style="font-size:11px; color:#9d174d; display:block; margin-top:20px;">
+      مدة العقد والأطراف
+    </strong>
+
+    <p>يبدأ تنفيذ هذا العقد من تاريخه وحتى إخلاء الطرف الثاني للشقة والحصول على براءة ذمة.</p>
+
+    <p>
+      <strong>بتاريخ /</strong>
+      <span id="contractDateArabic">................................</span>
+    </p>
+
+    <p><strong>الطرف الأول:</strong> شركة ماف غاز ذ.م.م</p>
+
+    <p style="font-size:9px;">
+      ص.ب: 49895، القصيص، دبي - الإمارات | هاتف: 97142397910
+    </p>
+
+    <strong style="font-size:11px; color:#9d174d; display:block; margin-top:20px;">
+      تفاصيل الطرف الثاني / المستأجر
+    </strong>
+
+    <table style="font-size:9px;">
+      <tr>
+        <td style="width:28%">الاسم:</td>
+        <td><span id="secondPartyNameArabic">................................</span></td>
+      </tr>
+      <tr>
+        <td>رقم الشقة:</td>
+        <td><span id="flatNumberArabic">................................</span></td>
+      </tr>
+      <tr>
+        <td>اسم المبنى:</td>
+        <td><span id="buildingNameArabic">................................</span></td>
+      </tr>
+      <tr>
+        <td>رقم الاتصال:</td>
+        <td><span id="contactNoArabic">................................</span></td>
+      </tr>
+      <tr>
+        <td>البريد الإلكتروني:</td>
+        <td><span id="emailArabic">................................</span></td>
+      </tr>
+      <tr>
+        <td>قراءة الفتح:</td>
+        <td><span id="openReadingArabic">................................</span></td>
+      </tr>
+    </table>
+
+    <strong style="font-size:11px; color:#9d174d; display:block; margin-top:20px;">
+      موضوع العقد
+    </strong>
+
+    <p>توصيل الشقة بنظام الغاز المركزي وتزويدها بالغاز.</p>
+
+    <strong style="font-size:11px; color:#9d174d; display:block; margin-top:20px;">
+      الاتفاقات والشروط
+    </strong>
+
+    <ul class="list-rtl" style="font-size:9px;">
+      <li>تلتزم شركة ماف غاز ذ.م.م بتزويد الغاز دون انقطاع وتقديم الخدمة عند الطلب.</li>
+
+      <li>
+        المبلغ الإجمالي: درهم
+        <span id="totalAedArabic">................................</span>
+        موزع كالتالي:
+        <ul>
+          <li>
+            رسوم الربط: درهم
+            <span id="connectionFeeArabic">................................</span>
+          </li>
+          <li>
+            تأمين الاستهلاك (قابل للاسترداد): درهم
+            <span id="depositAmountArabic">................................</span>
+          </li>
+          <li>
+            رسوم الفصل وبراءة الذمة: درهم
+            <span id="disconnectionFeeArabic">................................</span>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        رسوم الخدمة الشهرية: درهم
+        <span id="monthlyFeeArabic">................................</span>
+      </li>
+
+      <li>
+        تم استلام: درهم
+        <span id="receivedAmountArabic">................................</span>
+      </li>
+
+      <li>
+        رسوم الصيانة: درهم
+        <span id="maintenanceChargesArabic">................................</span>
+      </li>
+
+      <li>تُحسب فواتير الاستهلاك حسب سعر إمارات للمتر المكعب.</li>
+
+      <li>يُعتبر هذا العقد سند استلام رسمي.</li>
+    </ul>
+
+  </div>
+</div>
+
 
   <!-- SIGNATURES -->
 <div class="footer" style="margin-top: 50px; grid-template-columns: 1fr 1fr; gap: 6px;">
